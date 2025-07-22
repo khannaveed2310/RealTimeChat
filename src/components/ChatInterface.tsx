@@ -12,6 +12,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ username }) => {
   const [inputMessage, setInputMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+
   const messages = message.map((msg) => ({
     id: msg.id,
     user: msg.user,
@@ -55,7 +56,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ username }) => {
           />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white cursor-pointer font-bold py-2 px-4 rounded"
             disabled={!connected}
           >
             Send

@@ -13,7 +13,7 @@ const OnlineUsers: React.FC<OnlineUserProps> = ({users, currentUser}) => {
             <h2 className="text-lg font-semibold mb-2 text-black">Users</h2>
             <ul>
                 {users.map((user, index) => (
-                    <li key={index} className={user === currentUser ? 'font-bold text-black': ''}>
+                    <li key={index} className={user === currentUser ? 'font-bold text-black': 'text-black'}>
                         {user} {user === currentUser && '(me)'}
                     </li>
                 ))}

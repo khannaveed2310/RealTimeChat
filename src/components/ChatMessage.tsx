@@ -21,14 +21,14 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message, isOwnMessage }) => {
 
   return (
     <div className={`mb-2 ${isOwnMessage ? "text-right" : "text-left"}`}>
-      <span
-        className={`inline-block p-2 rounded-lg ${
+      <div
+        className={`inline-block max-w-xs p-2 rounded-lg break-words text-left ${
           isOwnMessage ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
         }`}
       >
-        <strong>{message.user}: </strong>
-        {message.text}
-      </span>
+        <div className="text-sm font-semibold mb-1">{message.user}</div>
+        <div>{message.text}</div>
+      </div>
       <div className="text-xs text-gray-500 mt-1">
         {date.toLocaleTimeString()}
       </div>
