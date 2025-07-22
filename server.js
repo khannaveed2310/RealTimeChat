@@ -7,6 +7,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const users = new Map()
+
 app.prepare().then(() => {
     const server = createServer((req, res) => {
         const parsedUrl = parse(req.url, true);
@@ -18,6 +20,11 @@ app.prepare().then(() => {
     io.on('connection', (socket) => {
         console.log("A Client Connected")
 
+        socket.on('user joined', (username) => {
+            users.set(socket.id, username)
+            io.emit("update users", Array.from(users.values()))
+        })
+
         socket.on('chat message', (msg) => {
             console.log('Message Received', msg);
             io.emit('chat message', msg)
@@ -25,6 +32,8 @@ app.prepare().then(() => {
 
         socket.on('disconnect' ,  () => {   
             console.log('A Client disconnected')
+            users.delete(socket.id);
+            io.emit("update users", Array.from(users.values()))
         });
     });
 
