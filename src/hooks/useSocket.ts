@@ -47,6 +47,7 @@ export const useSocket = (username: string) => {
       if (Notification.permission === 'granted' && msg.user !== username) {
         new Notification(`New Message From ${msg.user}:`, {
           body: msg.text,
+          icon: "favicon.ico"
         });
       }
     });
