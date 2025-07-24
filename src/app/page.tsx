@@ -24,7 +24,7 @@ export default function Home() {
             placeholder='Username'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            onKeyPress={(e) => {
+            onKeyDown={(e) => {
               if(e.key === 'Enter'){
                 handleJointChat()
               }
