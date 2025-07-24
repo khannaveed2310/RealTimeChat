@@ -23,10 +23,10 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message, isOwnMessage }) => {
     <div className={`mb-2 ${isOwnMessage ? "text-right" : "text-left"}`}>
       <div
         className={`inline-block max-w-xs p-2 rounded-lg break-words text-left ${
-          isOwnMessage ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"
+          isOwnMessage ? "bg-green-200 text-gray-800" : "bg-blue-200 text-gray-800"
         }`}
       >
-        <div className="text-sm font-semibold mb-1">{message.user}</div>
+        <div className="text-sm font-semibold mb-1 text-black">{message.user}</div>
         <div>{message.text}</div>
       </div>
       <div className="text-xs text-gray-500 mt-1">
